@@ -83,3 +83,27 @@ none was found in this search, as of September 2026.
 Many of the results discussed are recent, and some are preprints that may
 change in review; the book will be revised accordingly. Corrections and
 suggestions are welcome.
+
+## Open source {#sec-preface-open}
+
+Readers are encouraged to check, reproduce, and extend what this book shows.
+The text of both editions, the interactive figures and the code that computes
+them, the scripts that regenerate the recorded data behind several figures,
+and the bibliography are open source at
+[github.com/changkun/bobook](https://github.com/changkun/bobook). Corrections
+are welcome there as issues or pull requests.
+
+## Use of language models {#sec-preface-llm}
+
+This book was written entirely by large language models, prompted and steered
+throughout by the author. That includes the text of both editions, the
+translation into Chinese, the interactive figures and the code behind them,
+the simulations, and much of the checking; no sentence was written or edited
+by hand. The author set the book's scope, structure, and argument, directed
+every revision, and decided what to keep and what to change. The checking
+relied on primary sources and on computation: every cited work was matched
+to its record on a publisher's, proceedings', or preprint page; the numbers
+the text quotes from figures are pinned by tests that fail when a figure
+changes; and derivations and worked numbers were recomputed in review passes
+separate from their drafting. The author takes full responsibility for the
+accuracy, integrity, and conclusions of the book.

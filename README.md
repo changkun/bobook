@@ -108,6 +108,14 @@ sentence. A change to a chapter's text should be made in both editions, so
 that `node tools/zh-check.ts` still passes; if you can only edit one, say so
 in the pull request. Every check above runs on each pull request.
 
+## Use of language models
+
+The book was written entirely by large language models, prompted and steered
+throughout by the author, who set its scope, structure, and argument and
+directed every revision; no sentence was written or edited by hand. The
+preface describes how it was checked. The author takes full responsibility for
+its accuracy, integrity, and conclusions.
+
 ## License
 
 The book's text (`en/`, `zh/`), bibliography (`refs/`), and `GLOSSARY.zh.md`:
