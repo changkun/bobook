@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://changkun.de/bobook/"><img src="src/styles/og-en.png" alt="Bayesian Optimization: From First Principles to Human Preferences, by Changkun Ou" width="760"></a>
+  <a href="https://changkun.de/bobook/"><img src=".github/readme/cover.png" alt="Bayesian Optimization: From First Principles to Human Preferences, by Changkun Ou" width="760"></a>
 </p>
 
 <p align="center">

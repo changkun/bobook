@@ -5,6 +5,9 @@
 // the cover or a title:
 //
 //   node tools/og-image.ts            writes src/styles/og-en.png and og-zh.png
+//   node tools/og-image.ts --readme   writes .github/readme/cover.png, the
+//                                     English card at twice the resolution,
+//                                     for the README on high-density screens
 
 import { chromium } from "playwright-core";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
@@ -52,13 +55,15 @@ function card(lang: "en" | "zh"): string {
 </body></html>`;
 }
 
+const readme = process.argv.includes("--readme");
 const browser = await chromium.launch({ executablePath: chromePath() });
-for (const lang of ["en", "zh"] as const) {
+for (const lang of readme ? ["en"] as const : ["en", "zh"] as const) {
   if (!existsSync(`${lang}/book.yml`)) continue;
-  const page = await (await browser.newContext({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 })).newPage();
+  const page = await (await browser.newContext({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: readme ? 2 : 1 })).newPage();
   await page.setContent(card(lang), { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
-  await page.screenshot({ path: `src/styles/og-${lang}.png`, type: "png" });
-  console.log(`wrote src/styles/og-${lang}.png`);
+  const path = readme ? ".github/readme/cover.png" : `src/styles/og-${lang}.png`;
+  await page.screenshot({ path, type: "png" });
+  console.log(`wrote ${path}`);
 }
 await browser.close();
