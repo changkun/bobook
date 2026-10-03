@@ -119,7 +119,7 @@ ${status}
 ${s.body}
 </article>
 ${pager}
-<footer class="site-footer">${esc(book.title)}${book.lang === "zh" ? "：" : ": "}${esc(book.subtitle)} · © 2026 ${esc(book.author)} · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a> · <a href="@@ROOT@@${esc(book.back.find((b) => /bibliography/.test(b.href))?.href ?? "")}">${esc(ui.bibliography)}</a>${book.repo ? ` · <a href="${esc(book.repo)}">${esc(ui.source)}</a> · <a href="${esc(issueUrl(book, p, s.title))}">${esc(ui.reportIssue)}</a>` : ""}</footer>
+<footer class="site-footer">${esc(book.title)}${book.lang === "zh" ? "：" : ": "}${esc(book.subtitle)} · © 2026 ${esc(book.author)} · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a> · <a href="@@ROOT@@${esc(book.back.find((b) => /bibliography/.test(b.href))?.href ?? "")}">${esc(ui.bibliography)}</a>${book.repo ? ` · <a href="${esc(book.repo)}">${esc(ui.source)}</a> · <a href="${esc(issueUrl(book, p, s.title))}">${esc(ui.reportIssue)}</a>` : ""}<span class="page-stat"> · PV/UV <span id="urlstat-page-pv"></span>/<span id="urlstat-page-uv"></span></span></footer>
 </main>
 ${tocHtml}
 </div>

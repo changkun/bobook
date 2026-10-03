@@ -460,6 +460,9 @@ a.ref-title:hover { text-decoration: underline; }
 .pager-dir { color: var(--ink-3); }
 .site-footer { max-width: var(--col); margin: 14px auto 0; padding: 0 0 28px; font: 400 12px/1.5 var(--font-ui); color: var(--ink-3); }
 .site-footer a { color: var(--ink-3); }
+/* Page views and visitors, filled in by urlstat on the published site. */
+.site-footer .page-stat { font-variant-numeric: tabular-nums; }
+.site-footer .page-stat:has(#urlstat-page-pv:empty) { display: none; }
 
 /* search */
 .search-panel { position: fixed; inset: 0; z-index: 80; background: rgba(0,0,0,0.28); display: flex; justify-content: center; align-items: flex-start; padding: 10vh 16px 0; }

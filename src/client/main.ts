@@ -12,6 +12,15 @@ const T = LANG === "zh"
 
 const root = document.documentElement;
 
+// Page views are counted by urlstat (github.com/changkun/urlstat), on the
+// published site only; its script fills the PV/UV counts in the footer.
+if (/(^|\.)changkun\.de$/.test(location.hostname)) {
+  const stat = document.createElement("script");
+  stat.async = true;
+  stat.src = "https://changkun.de/urlstat/client.js";
+  document.head.append(stat);
+}
+
 // Theme: follows the system unless the reader picks one.
 document.querySelector(".theme-btn")?.addEventListener("click", () => {
   const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
