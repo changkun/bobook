@@ -4,7 +4,7 @@
 // here and sends the author back to the prose that quotes it. A figure's
 // `snapshots` add further named states, such as a finished simulated session.
 //
-//   UPDATE=1 node --test test/      rewrite the snapshot after checking the prose
+//   UPDATE=1 npm test      rewrite the snapshot after checking the prose
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -30,6 +30,6 @@ const saved = JSON.parse(readFileSync(FILE, "utf8")) as Record<string, string>;
 
 for (const name of Object.keys(current)) {
   test(`description of ${name} is unchanged`, () => {
-    assert.equal(current[name], saved[name], `${name}: the state changed; check the prose that quotes this figure, then run UPDATE=1 node --test test/`);
+    assert.equal(current[name], saved[name], `${name}: the state changed; check the prose that quotes this figure, then run UPDATE=1 npm test`);
   });
 }

@@ -10,7 +10,7 @@
   "scripts": {
     "build": "node src/build.ts",
     "dev": "node src/dev.ts",
-    "test": "node --test test/",
+    "test": "node --test 'test/*.test.ts'",
     "typecheck": "tsc --noEmit",
     "refs:extract": "node tools/refs/extract.ts",
     "refs:enrich": "node tools/refs/enrich.ts"
