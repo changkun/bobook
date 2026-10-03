@@ -146,6 +146,10 @@ if (bibFilter) {
 
 mountFigures();
 
+// The landing page's cover runs the optimization loop it depicts.
+const cover = document.querySelector<HTMLElement>(".book-cover");
+if (cover) import("./cover-live.ts").then((m) => m.startCover(cover)).catch(() => {});
+
 // Step-through derivations. A derivation written as a numbered list can be
 // read one step at a time: later steps stay visible but faded, so the reader
 // sees where the argument is going and can try the next step before revealing

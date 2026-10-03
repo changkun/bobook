@@ -406,6 +406,19 @@ a.ref-title:hover { text-decoration: underline; }
 .book-cover { position: relative; aspect-ratio: 2 / 3; container-type: inline-size; overflow: hidden; border-radius: 3px; background: #0f1d31;
   box-shadow: 0 1px 2px rgba(10, 20, 35, 0.25), 0 10px 28px -6px rgba(10, 20, 35, 0.35); }
 .book-cover img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.book-cover .bc-art, .book-cover .bc-layer { position: absolute; inset: 0; }
+.book-cover .bc-layer { opacity: 0; transition: opacity 0.8s ease; }
+.book-cover .bc-layer.is-shown { opacity: 1; }
+.book-cover .bc-layer svg { width: 100%; height: 100%; display: block; }
+.book-cover.is-live { cursor: crosshair; }
+.book-cover .bc-new-dot { transform-box: fill-box; transform-origin: center; animation: bc-pop 0.6s ease-out 0.3s both; }
+.book-cover .bc-new-arc { stroke-dasharray: 1; stroke-dashoffset: 1; animation: bc-draw 1.1s ease-out 0.5s forwards; }
+@keyframes bc-pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes bc-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .book-cover .bc-layer { transition: none; }
+  .book-cover .bc-new-dot, .book-cover .bc-new-arc { animation: none; stroke-dashoffset: 0; }
+}
 .bc-text { position: absolute; top: 7.5%; left: 9%; right: 8%; display: flex; flex-direction: column; color: #f4ecdc; }
 .bc-author { font: 600 3.7cqw/1 var(--font-ui); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8.5cqw; }
 .bc-title { font: 600 12cqw/1.02 var(--font-body); letter-spacing: -0.012em; }
