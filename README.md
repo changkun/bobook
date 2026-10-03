@@ -1,33 +1,51 @@
+<p align="center">
+  <a href="https://changkun.de/bobook/"><img src="src/styles/og-en.png" alt="Bayesian Optimization: From First Principles to Human Preferences, by Changkun Ou" width="760"></a>
+</p>
+
+<p align="center">
+  <a href="https://changkun.de/bobook/en/"><img alt="Read in English" src="https://img.shields.io/badge/read-English-1d3b63"></a>
+  <a href="https://changkun.de/bobook/zh/"><img alt="中文阅读" src="https://img.shields.io/badge/%E9%98%85%E8%AF%BB-%E4%B8%AD%E6%96%87-1d3b63"></a>
+  <a href="https://github.com/changkun/bobook/actions/workflows/check.yml"><img alt="check" src="https://github.com/changkun/bobook/actions/workflows/check.yml/badge.svg"></a>
+  <a href="LICENSE-TEXT"><img alt="Text: CC BY-NC-SA 4.0" src="https://img.shields.io/badge/text-CC%20BY--NC--SA%204.0-lightgrey"></a>
+  <a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-blue"></a>
+</p>
+
 # Bayesian Optimization: From First Principles to Human Preferences
 
 An interactive book about optimizing what you cannot write down: functions
 that are expensive to evaluate, and preferences that only a person can judge.
-
-**Read it at [changkun.de/bobook](https://changkun.de/bobook/)**, in English or
-in Chinese ([中文版](https://changkun.de/bobook/zh/index.html)).
-
-The Chinese edition (`zh/`) mirrors the English one (`en/`) file for file.
-Its terminology follows `GLOSSARY.zh.md`, and `node tools/zh-check.ts`
-checks every Chinese page against its English counterpart: the same math,
-ids, cross-references, citations, and figure settings, no forbidden term
-variants, and Chinese typography.
+Read it at **[changkun.de/bobook](https://changkun.de/bobook/)**, in
+[English](https://changkun.de/bobook/en/) or [中文](https://changkun.de/bobook/zh/).
 
 The book starts from the probability and linear algebra a software engineer
 may not have used since school, builds Gaussian processes, the analysis behind
-their kernels, and Bayesian optimization on top, extends them to learning from comparisons, and then
-follows the research through September 2026: what has been proved about
-preferential Bayesian optimization, what happened when it was used with real
-people, how it relates to the preference models behind large language models,
-and what psychology, neuroscience, economics, and philosophy say about whether
-a preference is there to be found.
+their kernels, and Bayesian optimization on top, and extends them to learning
+from comparisons. It then follows the research through September 2026: what
+has been proved about preferential Bayesian optimization, what happened when it
+was used with real people, how it relates to the preference models behind
+large language models, and what psychology, neuroscience, economics, and
+philosophy say about whether a preference is there to be found.
 
-It is a web book. Its figures are live: you place observations and watch a
-Gaussian process respond, step an optimizer through its decisions, and in
-several places you are the person being optimized, choosing between options
-while a model learns your taste. Every figure also renders without script.
-Derivations are written out step by step; every claim about the literature is
-cited in the sentence that makes it, and the references are collected per
-section, per chapter, per part, and for the whole book.
+**47 chapters in 10 parts · 101 interactive figures · 1,240 cited works ·
+English and Chinese**
+
+## Figures you can use
+
+Most figures are live. You place observations and watch a Gaussian process
+respond, step an optimizer through its decisions, and in several places you
+are the person being optimized, choosing between options while a model learns
+your taste. Every figure also renders without script, and the numbers the text
+quotes from a figure are pinned by tests.
+
+<table>
+  <tr>
+    <td width="50%"><a href="https://changkun.de/bobook/en/gp/02-gp-regression.html"><img src=".github/readme/gp-posterior.png" alt="Gaussian process regression: click to add observations, change the kernel and lengthscale"></a><br><sub>Gaussian process regression: click to add observations, change the kernel and the lengthscale.</sub></td>
+    <td width="50%"><a href="https://changkun.de/bobook/en/gp/04-analysis-of-kernels.html"><img src=".github/readme/mercer.png" alt="Mercer's theorem computed: eigenvalues and eigenfunctions of four kernels"></a><br><sub>Mercer's theorem computed: how fast each kernel's eigenvalues decay, and a draw built from the first m terms.</sub></td>
+  </tr>
+  <tr>
+    <td colspan="2"><a href="https://changkun.de/bobook/en/cases/04-photo-enhancement.html"><img src=".github/readme/photo-enhance.jpg" alt="Enhancing a real photograph by comparison: choose the version you prefer while a model learns your taste"></a><br><sub>Enhancing a real photograph by comparison: you choose between two versions, and preferential Bayesian optimization learns your taste over six adjustments.</sub></td>
+  </tr>
+</table>
 
 ## Parts
 
@@ -56,6 +74,14 @@ section, per chapter, per part, and for the whole book.
 
 Appendices cover notation, the matrix and Gaussian identities used in the
 derivations, and a minimal implementation in NumPy.
+
+## Two editions
+
+The Chinese edition (`zh/`) mirrors the English one (`en/`) file for file.
+Its terminology follows [GLOSSARY.zh.md](GLOSSARY.zh.md), and
+`node tools/zh-check.ts` checks every Chinese page against its English
+counterpart: the same math, ids, cross-references, citations, and figure
+settings, no forbidden term variants, and Chinese typography.
 
 ## Working on the book
 
