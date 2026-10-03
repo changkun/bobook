@@ -83,6 +83,22 @@ Its terminology follows [GLOSSARY.zh.md](GLOSSARY.zh.md), and
 counterpart: the same math, ids, cross-references, citations, and figure
 settings, no forbidden term variants, and Chinese typography.
 
+## Citing
+
+```bibtex
+@book{ou2026bobook,
+  author   = {Changkun Ou},
+  title    = {Bayesian Optimization},
+  subtitle = {From First Principles to Human Preferences},
+  year     = {2026},
+  url      = {https://changkun.de/bobook}
+}
+```
+
+The book covers research through September 2026 and will be revised as the
+field moves. When a claim matters, cite the chapter's address and the date you
+read it.
+
 ## Working on the book
 
 You need Node.js 23.6 or later; the sources are TypeScript, which Node runs
