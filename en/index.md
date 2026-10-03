@@ -59,6 +59,12 @@ the person being optimized.
 Start with @sec-optimizing-the-unknown, read the [preface](preface.html)
 first, or pick a part from the [contents](#contents) below.
 
+The book is open source on
+[GitHub](https://github.com/changkun/bobook). If you find an error, a number
+that does not match its source, or a passage that is hard to follow, please
+[open an issue](https://github.com/changkun/bobook/issues); every page also
+has a link at the bottom that does this for that page.
+
 </div>
 </div>
 

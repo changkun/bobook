@@ -37,6 +37,8 @@ export interface UI {
   bookContents: string;
   appendices: string;
   bibliography: string;
+  source: string; // link to the repository
+  reportIssue: string; // link that opens a prefilled issue for the page
   status: Record<string, [string, string]>;
   untranslated: string;
   otherEdition: { label: string; title: string };
@@ -90,6 +92,8 @@ export const UI: Record<Lang, UI> = {
     bookContents: "Book contents",
     appendices: "Appendices",
     bibliography: "Bibliography",
+    source: "Source on GitHub",
+    reportIssue: "Report an issue with this page",
     status: {
       outline: ["Outline", "headings and sources only; the prose is not written yet"],
       draft: ["Draft", "complete but not yet reviewed; expect revisions"],
@@ -147,6 +151,8 @@ export const UI: Record<Lang, UI> = {
     bookContents: "全书目录",
     appendices: "附录",
     bibliography: "参考文献",
+    source: "GitHub 源码",
+    reportIssue: "报告本页的问题",
     status: {
       outline: ["提纲", "仅有标题与资料来源，正文尚未写成"],
       draft: ["草稿", "内容完整但尚未审校，可能还会修改"],

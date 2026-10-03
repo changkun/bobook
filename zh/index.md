@@ -39,6 +39,8 @@ steps: 10
 
 可以从 @sec-optimizing-the-unknown 开始阅读，也可以先读[前言](preface.html)，或从下方[目录](#contents)中选择感兴趣的部分。
 
+本书在 [GitHub](https://github.com/changkun/bobook) 开源。若发现错误、与来源不符的数字或难以理解的段落，欢迎[提交 issue](https://github.com/changkun/bobook/issues)；每一页底部也有为该页提交问题的链接。
+
 </div>
 </div>
 
