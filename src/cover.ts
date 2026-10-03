@@ -1,9 +1,10 @@
 // The cover art: the book's two halves in one picture, computed rather than
 // drawn. Above, fifty-six samples from a Gaussian process posterior on the running
-// objective, pinched at six observations and fanning out between them, with
-// the next query (largest expected improvement) as an orange hairline. Below,
+// objective, pinched at six observations and fanning out between them. Below,
 // the same observations as a comparison graph: an arc for each answered pair,
-// the preferred option filled. The title, subtitle, and author are HTML laid
+// the preferred option filled. In orange, the next question: the point of
+// largest expected improvement, and a dashed arc pairing it with the best
+// design so far. The title, subtitle, and author are HTML laid
 // over the art (en/index.md), so they use the book's fonts and stay text.
 
 import { fit, kernel, predict, samplePosterior } from "./figures/lib/gp.ts";
@@ -46,6 +47,17 @@ export function coverArt(): string {
     ? `<circle cx="${px(x)}" cy="${base}" r="3.4" fill="${PAPER}"/>`
     : `<circle cx="${px(x)}" cy="${base}" r="3" fill="#0e1a2c" stroke="${PAPER}" stroke-width="1.2"/>`).join("");
   const dots = obsX.map((x, i) => `<circle cx="${px(x)}" cy="${py(obsY[i])}" r="3.6"/>`).join("");
+  // The next question, in orange: the point of largest expected improvement
+  // on the posterior mean, its stem down to the comparison row, and a dashed
+  // arc to the best design so far, the comparison the person is asked next.
+  const iNext = xs.indexOf(next);
+  const iBest = obsY.indexOf(best);
+  const nx = Number(px(next)), bx = Number(px(obsX[iBest]));
+  const nrx = Math.abs(bx - nx) / 2, nry = Math.min(76, nrx * 0.42);
+  const ask = `<line x1="${nx}" x2="${nx}" y1="${py(post.mean[iNext])}" y2="${base}" stroke="${ORANGE}" stroke-opacity="0.7" stroke-width="0.9" stroke-dasharray="1.5 3"/>
+<path d="M${Math.min(nx, bx)},${base}A${nrx.toFixed(1)},${nry.toFixed(1)} 0 0 0 ${Math.max(nx, bx)},${base}" fill="none" stroke="${ORANGE}" stroke-width="1.1" stroke-dasharray="3 2.5"/>
+<circle cx="${nx}" cy="${py(post.mean[iNext])}" r="3.6" fill="${ORANGE}"/>
+<circle cx="${nx}" cy="${base}" r="3.2" fill="#0e1a2c" stroke="${ORANGE}" stroke-width="1.4"/>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15263f"/><stop offset="1" stop-color="#0b1524"/></linearGradient></defs>
@@ -53,11 +65,10 @@ export function coverArt(): string {
 <g fill="none" stroke="${PAPER}" stroke-width="0.7" stroke-opacity="0.16" stroke-linejoin="round">${threads}</g>
 <path d="${line(post.mean)}" fill="none" stroke="${PAPER}" stroke-width="1.3" stroke-opacity="0.6"/>
 <g stroke="${PAPER}" stroke-opacity="0.22" stroke-width="0.8" stroke-dasharray="1.5 3">${stems}</g>
-<line x1="${px(next)}" x2="${px(next)}" y1="268" y2="${base}" stroke="${ORANGE}" stroke-width="1.3"/>
-<circle cx="${px(next)}" cy="268" r="4.2" fill="none" stroke="${ORANGE}" stroke-width="1.5"/>
 <g fill="${PAPER}">${dots}</g>
 <g fill="none" stroke="${PAPER}" stroke-opacity="0.45" stroke-width="0.9">${arcs}</g>
 ${marks}
+${ask}
 </svg>
 `;
 }
