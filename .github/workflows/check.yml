@@ -1,0 +1,46 @@
+# Checks every push and pull request: types, tests, a strict build of both
+# editions, the Chinese edition against the English one, and every page in
+# a browser at desktop and phone width. Publishing is done by the author with
+# `make deploy`, not here.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Tests
+        run: npm test
+      - name: Build both editions (strict)
+        run: npm run build
+      - name: Chinese edition matches the English one
+        run: node tools/zh-check.ts > zh-check.txt || (grep -v '^✓' zh-check.txt; exit 1)
+
+  pages:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium
+        run: npx playwright-core install --with-deps chromium
+      - name: Build
+        run: npm run build
+      - name: Load every page and report problems
+        run: node tools/shots.ts --all

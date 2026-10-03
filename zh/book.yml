@@ -1,0 +1,104 @@
+# The structure of the Chinese edition (the same files as en/book.yml). Chapters are numbered in this order;
+# appendices are lettered. Each chapter's front matter carries its status.
+title: "贝叶斯优化"
+subtitle: "从基本原理到人类偏好"
+author: 欧长坤
+repo: https://github.com/changkun/bobook
+url: https://changkun.de/bobook/   # the published site, for link previews
+front:
+  - index.md
+  - preface.md
+parts:
+  - id: foundations
+    title: "基础"
+    intro: foundations/index.md
+    chapters:
+      - foundations/01-optimizing-the-unknown.md
+      - foundations/02-probability.md
+      - foundations/03-linear-algebra.md
+      - foundations/04-gaussian.md
+      - foundations/05-bayesian-inference.md
+      - foundations/06-information.md
+  - id: gp
+    title: "高斯过程"
+    intro: gp/index.md
+    chapters:
+      - gp/01-distributions-over-functions.md
+      - gp/02-gp-regression.md
+      - gp/03-kernels-and-hyperparameters.md
+      - gp/04-analysis-of-kernels.md
+  - id: bo
+    title: "贝叶斯优化"
+    intro: bo/index.md
+    chapters:
+      - bo/01-the-loop.md
+      - bo/02-acquisition-functions.md
+      - bo/03-regret-and-bandits.md
+      - bo/04-bo-in-practice.md
+      - bo/05-applications.md
+  - id: preferences
+    title: "从比较中学习"
+    intro: preferences/index.md
+    chapters:
+      - preferences/01-why-comparisons.md
+      - preferences/02-approximate-inference.md
+      - preferences/03-gp-preference-learning.md
+      - preferences/04-preferential-bo.md
+      - preferences/05-query-design.md
+      - preferences/06-dueling-bandits.md
+  - id: cases
+    title: "案例研究"
+    intro: cases/index.md
+    chapters:
+      - cases/01-tuning-a-classifier.md
+      - cases/02-chemical-reaction.md
+      - cases/03-exoskeleton.md
+      - cases/04-photo-enhancement.md
+  - id: frontier
+    title: "研究前沿"
+    intro: frontier/index.md
+    chapters:
+      - frontier/01-a-decade-of-pbo.md
+      - frontier/02-observation-models.md
+      - frontier/03-acquisition-frontier.md
+      - frontier/04-theory.md
+      - frontier/05-high-dimensions.md
+      - frontier/06-software-evaluation.md
+  - id: humans
+    title: "人在回路"
+    intro: humans/index.md
+    chapters:
+      - humans/01-interactive-design.md
+      - humans/02-body-and-health.md
+      - humans/03-environments-science-industry.md
+  - id: neighbors
+    title: "相邻计算领域"
+    intro: neighbors/index.md
+    chapters:
+      - neighbors/01-language-models.md
+      - neighbors/02-adjacent-fields.md
+  - id: perspectives
+    title: "偏好是什么？"
+    intro: perspectives/index.md
+    chapters:
+      - perspectives/01-judgment-and-psychophysics.md
+      - perspectives/02-social-psychology.md
+      - perspectives/03-neuroscience.md
+      - perspectives/04-economics.md
+      - perspectives/05-philosophy.md
+      - perspectives/06-social-sciences.md
+      - perspectives/07-natural-sciences.md
+      - perspectives/08-design-and-senses.md
+  - id: synthesis
+    title: "综合"
+    intro: synthesis/index.md
+    chapters:
+      - synthesis/01-what-a-comparison-measures.md
+      - synthesis/02-recommendations.md
+      - synthesis/03-open-problems.md
+appendices:
+  - appendices/a-notation.md
+  - appendices/b-gaussian-identities.md
+  - appendices/c-minimal-implementation.md
+back:
+  - bibliography.md
