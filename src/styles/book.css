@@ -24,9 +24,9 @@
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --col: 720px;
-  --side: 248px;
+  --side: clamp(260px, 20vw, 300px);
   --toc: 212px;
-  --top: 44px;
+  --top: 69px;
 
   /* figure tokens */
   --fig-ink: #0d0d0d;
@@ -112,20 +112,26 @@ body { padding-top: var(--top); }
 .topbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 40;
   height: var(--top);
-  display: flex; align-items: center; gap: 14px;
-  padding: 0 16px;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
+  display: flex; align-items: center; gap: 16px;
+  /* The blog's header: 16px about the 36px buttons puts the theme button
+     where the home page has it. */
+  padding: 16px 16px 16px clamp(16px, 2vw, 24px);
+  background: var(--bg);
   border-bottom: 1px solid var(--rule);
   font-family: var(--font-ui);
 }
-.brand { font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
-.crumbs { flex: 1; min-width: 0; font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.crumbs a { color: var(--ink-3); text-decoration: none; }
+.brand { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.crumbs { flex: 1; min-width: 0; font-size: 14.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.crumbs::before { content: "/"; margin-right: 10px; color: var(--ink-3); }
+.crumbs:empty::before { content: none; }
+.crumbs a { color: var(--ink-2); text-decoration: none; }
 .crumbs a:hover { color: var(--ink); }
-.topbar-tools { display: flex; gap: 4px; }
-.topbar button { background: none; border: 0; color: var(--ink-2); width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: grid; place-items: center; }
-.topbar button:hover { background: var(--bg-2); color: var(--ink); }
+.topbar-tools { display: flex; gap: 8px; margin-left: auto; }
+/* The search, language, and theme buttons: the home page's button. */
+.search-btn, .theme-btn, .lang-btn { flex: none; width: 36px; height: 36px; padding: 0; border: 1px solid var(--rule-strong); border-radius: 8px; background: none; color: var(--ink-2); cursor: pointer; display: grid; place-items: center; transition: color 0.2s, background-color 0.2s; }
+.search-btn:hover, .theme-btn:hover, .lang-btn:hover { background: var(--bg-2); color: var(--ink); }
+.menu-btn { flex: none; width: 36px; height: 36px; margin-left: -6px; padding: 0; border: 0; border-radius: 8px; background: none; color: var(--ink-2); cursor: pointer; place-items: center; }
+.menu-btn:hover { background: var(--bg-2); color: var(--ink); }
 .menu-btn { display: none !important; }
 /* The moon in the light theme, the sun in the dark, as on the other pages. */
 .theme-btn .icon-sun { display: none; }
@@ -143,16 +149,14 @@ body { padding-top: var(--top); }
 .layout {
   display: grid;
   grid-template-columns: var(--side) minmax(0, 1fr) var(--toc);
-  max-width: 1320px;
-  margin: 0 auto;
 }
 [data-no-toc] .layout { grid-template-columns: var(--side) minmax(0, 1fr); }
 .sidebar {
   position: fixed; top: var(--top); bottom: 0;
-  left: max(0px, calc((100% - 1320px) / 2)); width: var(--side);
+  left: 0; width: var(--side);
   overflow-y: auto;
-  padding: 12px 8px 32px 12px;
-  font: 400 13.5px/1.32 var(--font-ui);
+  padding: 28px 20px;
+  font: 400 14px/1.5 var(--font-ui);
   border-right: 1px solid var(--rule);
   scrollbar-width: thin;
 }
@@ -164,35 +168,34 @@ body { padding-top: var(--top); }
 [data-no-toc] .pager, [data-no-toc] .site-footer { max-width: 1000px; }
 .toc {
   position: fixed; top: var(--top); bottom: 0;
-  right: max(0px, calc((100% - 1320px) / 2)); width: var(--toc);
+  right: 0; width: var(--toc);
   overflow-y: auto;
   padding: 28px 12px 32px 0;
   font: 400 12.5px/1.35 var(--font-ui);
   scrollbar-width: thin;
 }
 
-/* sidebar: one line per part, a fixed column for numbers */
+/* sidebar: as An Unverifiable World's, the book's contents in plain text,
+   parts as quiet labels over their chapters, the current page in ink. A
+   part folds away, since there are ten. */
 .nav-list { list-style: none; margin: 0; padding: 0; }
-.nav-list a { display: flex; gap: 6px; align-items: baseline; padding: 3px 8px; border-radius: 5px; color: var(--ink-2); text-decoration: none; }
-.nav-list a:hover { background: var(--bg-2); color: var(--ink); }
-.nav-list a[aria-current] { background: var(--bg-2); color: var(--ink); font-weight: 600; }
-.nav-num { flex: none; width: 20px; color: var(--ink-3); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
-.nav-title { flex: 1; min-width: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
-.nav-status { flex: none; width: 5px; height: 5px; border-radius: 50%; align-self: center; border: 1.2px solid var(--ink-3); }
-.nav-part { margin: 1px 0; }
-.nav-part > summary { list-style: none; cursor: pointer; padding: 4px 8px; border-radius: 5px; font-weight: 600; color: var(--ink); display: flex; align-items: baseline; }
+.nav-list li { margin: 1px 0; }
+.nav-list a { display: flex; align-items: baseline; padding: 4px 0; color: var(--ink-2); text-decoration: none; }
+.nav-list a:hover { color: var(--ink); }
+.nav-list a[aria-current] { color: var(--ink); font-weight: 600; }
+.nav-num { flex: none; margin-right: 0.35em; font-variant-numeric: tabular-nums; }
+.nav-num::after { content: "."; }
+.nav-title { flex: 1; min-width: 0; }
+.nav-status { flex: none; width: 5px; height: 5px; margin-left: 6px; border-radius: 50%; align-self: center; border: 1.2px solid var(--ink-3); }
+.nav-part > summary { list-style: none; cursor: pointer; margin: 18px 0 6px; font-size: 13px; font-weight: 500; color: var(--ink-3); display: flex; align-items: baseline; }
 .nav-part > summary::-webkit-details-marker { display: none; }
-.nav-part > summary:hover { background: var(--bg-2); }
-.nav-part-link { color: inherit; text-decoration: none; display: flex; gap: 6px; align-items: baseline; flex: 1; }
-.nav-part-link[aria-current] { color: var(--ink); }
-.nav-part-num { flex: none; width: 20px; text-align: right; font-size: 10.5px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.nav-part-title { flex: 1; }
-.nav-part > summary::after { content: "›"; color: var(--ink-3); font-weight: 400; transition: transform 0.15s; margin-left: 4px; }
+.nav-part > summary:hover, .nav-part-link:hover { color: var(--ink); }
+.nav-part-link { color: inherit; text-decoration: none; flex: 1; }
+.nav-part-link[aria-current] { color: var(--ink); font-weight: 600; }
+.nav-part > summary::after { content: "›"; font-size: 14px; line-height: 1; transition: transform 0.15s; margin-left: 4px; }
 .nav-part[open] > summary::after { transform: rotate(90deg); }
-.nav-part .nav-list { margin: 1px 0 6px; }
-.nav-part .nav-list a { font-weight: 400; }
-.nav-front, .nav-back { margin: 2px 0; }
-.nav-front a, .nav-back a { padding-left: 34px; font-weight: 600; color: var(--ink); }
+.nav-part:not([open]) > summary { margin-bottom: 0; }
+.nav-back { margin-top: 18px; }
 
 /* page outline: weight and color mark the current section, no rules */
 .toc-head { font-weight: 600; font-size: 12.5px; color: var(--ink); margin-bottom: 6px; }
@@ -597,5 +600,4 @@ a.ref-title:hover { text-decoration: underline; }
 :root[lang="zh"] .article h1, :root[lang="zh"] .article h2, :root[lang="zh"] .article h3 { letter-spacing: 0; }
 :root[lang="zh"] .cover-text p, :root[lang="zh"] .cover-live-text p { line-height: 1.75; }
 .status-untranslated { color: var(--ink-3); }
-.lang-btn { font: 500 12.5px/1 var(--font-ui); color: var(--ink-2); text-decoration: none; height: 34px; min-width: 34px; padding: 0 6px; border-radius: 8px; display: grid; place-items: center; }
-.lang-btn:hover { color: var(--ink); background: var(--bg-2); }
+.lang-btn { width: auto; min-width: 36px; padding: 0 8px; font: 500 13px/1 var(--font-ui); text-decoration: none; }

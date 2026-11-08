@@ -36,14 +36,15 @@ function sidebar(s: Shell): string {
   let html = `<ol class="nav-list nav-front">${book.front.filter((p) => p.kind !== "index").map(chap).join("")}</ol>`;
   for (const part of book.parts) {
     const open = part.chapters.some((c) => c.href === page.href) || part.intro?.href === page.href;
+    const name = `${esc(partName(book.lang, part.num))}${book.lang === "zh" ? "：" : ": "}${esc(part.title)}`;
     const head = part.intro
-      ? `<a class="nav-part-link" href="@@ROOT@@${esc(part.intro.href)}"${part.intro.href === page.href ? ` aria-current="page"` : ""}><span class="nav-part-num">${esc(part.num)}</span><span class="nav-part-title">${esc(part.title)}</span></a>`
-      : `<span class="nav-part-link"><span class="nav-part-num">${esc(part.num)}</span><span class="nav-part-title">${esc(part.title)}</span></span>`;
+      ? `<a class="nav-part-link" href="@@ROOT@@${esc(part.intro.href)}"${part.intro.href === page.href ? ` aria-current="page"` : ""}>${name}</a>`
+      : `<span class="nav-part-link">${name}</span>`;
     html += `<details class="nav-part"${open ? " open" : ""}><summary>${head}</summary><ol class="nav-list">${part.chapters.map(chap).join("")}</ol></details>`;
   }
   if (book.appendices.length) {
     const open = book.appendices.some((c) => c.href === page.href);
-    html += `<details class="nav-part"${open ? " open" : ""}><summary><span class="nav-part-link"><span class="nav-part-num"></span><span class="nav-part-title">${esc(UI[book.lang].appendices)}</span></span></summary><ol class="nav-list">${book.appendices.map(chap).join("")}</ol></details>`;
+    html += `<details class="nav-part"${open ? " open" : ""}><summary><span class="nav-part-link">${esc(UI[book.lang].appendices)}</span></summary><ol class="nav-list">${book.appendices.map(chap).join("")}</ol></details>`;
   }
   if (book.back.length) html += `<ol class="nav-list nav-back">${book.back.map(chap).join("")}</ol>`;
   return html;
