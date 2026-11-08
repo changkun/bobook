@@ -2,22 +2,26 @@
    Colors are tokens on :root, redefined for the dark theme, so the build-time
    SVG of every figure follows the reader's theme without script. */
 
+/* The ink palette of changkun.de's other pages: white and neutral grays,
+   with navy for links and little else. The figure and callout hues are the
+   book's own: they carry meaning, not decoration. */
 :root {
-  --bg: #fbfaf7;
-  --bg-2: #f3f1ec;
-  --bg-3: #ebe8e1;
-  --ink: #1c1c1f;
-  --ink-2: #47474d;
-  --ink-3: #74747c;
-  --rule: #e2dfd7;
-  --accent: #1f5fae;
-  --accent-ink: #174a88;
-  --accent-soft: #e6eef9;
-  --warm: #b85c17;
+  --bg: #ffffff;
+  --bg-2: #f4f4f4;
+  --bg-3: #ebebeb;
+  --ink: #0d0d0d;
+  --prose: #262626;
+  --ink-2: #525252;
+  --ink-3: #666666;
+  --rule: #e6e6e6;
+  --rule-strong: #d6d6d6;
+  --accent: #38538f;
+  --accent-ink: #2b4171;
+  --accent-soft: #edf0f6;
 
-  --font-body: "Source Serif 4", "Source Serif Pro", Georgia, "Noto Serif SC", serif;
-  --font-ui: Inter, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  --font-body: var(--font-ui);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --col: 720px;
   --side: 248px;
@@ -25,13 +29,13 @@
   --top: 44px;
 
   /* figure tokens */
-  --fig-ink: #1c1c1f;
-  --fig-ink-2: #4b4b52;
-  --fig-ink-3: #85858d;
-  --fig-grid: #ebe8e1;
-  --fig-rule: #a9a59c;
-  --fig-paper: #fbfaf7;
-  --fig-panel: #f1eee8;
+  --fig-ink: #0d0d0d;
+  --fig-ink-2: #525252;
+  --fig-ink-3: #8a8a8a;
+  --fig-grid: #ebebeb;
+  --fig-rule: #a3a3a3;
+  --fig-paper: #ffffff;
+  --fig-panel: #f4f4f4;
   --fig-c1: #2a66b0;
   --fig-c2: #d46f1f;
   --fig-c3: #138f8a;
@@ -52,7 +56,7 @@
   --c-ex: #138f8a;
   --c-exr: #3f8f35;
   --c-der: #5b6470;
-  --c-note: #85858d;
+  --c-note: #8a8a8a;
   --c-aside: #a07a2a;
   --c-pit: #c63c33;
   --c-key: #d46f1f;
@@ -62,26 +66,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #141517; --bg-2: #1b1c1f; --bg-3: #24262a; --ink: #e8e6e1; --ink-2: #b9b7b1; --ink-3: #8a8983;
-    --rule: #2e3034; --accent: #78aef0; --accent-ink: #9cc4f5; --accent-soft: #1c2a3d; --warm: #f0a35e;
-    --fig-ink: #e8e6e1; --fig-ink-2: #bdbbb5; --fig-ink-3: #8a8983; --fig-grid: #26282c; --fig-rule: #5a5c60;
-    --fig-paper: #141517; --fig-panel: #1e2023;
+    --bg: #161616; --bg-2: #262626; --bg-3: #2e2e2e; --ink: #ececec; --prose: #d4d4d4; --ink-2: #b4b4b4; --ink-3: #9a9a9a;
+    --rule: #2a2a2a; --rule-strong: #3a3a3a; --accent: #9bb0e4; --accent-ink: #b8c8ee; --accent-soft: #262d3b;
+    --fig-ink: #ececec; --fig-ink-2: #b4b4b4; --fig-ink-3: #8a8a8a; --fig-grid: #262626; --fig-rule: #5a5a5a;
+    --fig-paper: #161616; --fig-panel: #1f1f1f;
     --fig-c1: #6ea8ef; --fig-c2: #f39a52; --fig-c3: #46c4bd; --fig-c4: #e3c34f; --fig-c5: #e07dbd; --fig-c6: #7cc56f; --fig-c7: #a68cf0; --fig-c8: #ef7b72;
     --fig-good: #6cc278; --fig-warn: #e7b04f; --fig-bad: #ef7b72;
     --fig-band: rgba(110, 168, 239, 0.2); --fig-acq-fill: rgba(243, 154, 82, 0.18);
-    --c-def: #6ea8ef; --c-thm: #a68cf0; --c-ex: #46c4bd; --c-exr: #7cc56f; --c-der: #9aa3ad; --c-note: #8a8983; --c-aside: #d6ad55; --c-pit: #ef7b72; --c-key: #f39a52; --c-frontier: #e07dbd;
+    --c-def: #6ea8ef; --c-thm: #a68cf0; --c-ex: #46c4bd; --c-exr: #7cc56f; --c-der: #9aa3ad; --c-note: #8a8a8a; --c-aside: #d6ad55; --c-pit: #ef7b72; --c-key: #f39a52; --c-frontier: #e07dbd;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #141517; --bg-2: #1b1c1f; --bg-3: #24262a; --ink: #e8e6e1; --ink-2: #b9b7b1; --ink-3: #8a8983;
-  --rule: #2e3034; --accent: #78aef0; --accent-ink: #9cc4f5; --accent-soft: #1c2a3d; --warm: #f0a35e;
-  --fig-ink: #e8e6e1; --fig-ink-2: #bdbbb5; --fig-ink-3: #8a8983; --fig-grid: #26282c; --fig-rule: #5a5c60;
-  --fig-paper: #141517; --fig-panel: #1e2023;
+  --bg: #161616; --bg-2: #262626; --bg-3: #2e2e2e; --ink: #ececec; --prose: #d4d4d4; --ink-2: #b4b4b4; --ink-3: #9a9a9a;
+  --rule: #2a2a2a; --rule-strong: #3a3a3a; --accent: #9bb0e4; --accent-ink: #b8c8ee; --accent-soft: #262d3b;
+  --fig-ink: #ececec; --fig-ink-2: #b4b4b4; --fig-ink-3: #8a8a8a; --fig-grid: #262626; --fig-rule: #5a5a5a;
+  --fig-paper: #161616; --fig-panel: #1f1f1f;
   --fig-c1: #6ea8ef; --fig-c2: #f39a52; --fig-c3: #46c4bd; --fig-c4: #e3c34f; --fig-c5: #e07dbd; --fig-c6: #7cc56f; --fig-c7: #a68cf0; --fig-c8: #ef7b72;
   --fig-good: #6cc278; --fig-warn: #e7b04f; --fig-bad: #ef7b72;
   --fig-band: rgba(110, 168, 239, 0.2); --fig-acq-fill: rgba(243, 154, 82, 0.18);
-  --c-def: #6ea8ef; --c-thm: #a68cf0; --c-ex: #46c4bd; --c-exr: #7cc56f; --c-der: #9aa3ad; --c-note: #8a8983; --c-aside: #d6ad55; --c-pit: #ef7b72; --c-key: #f39a52; --c-frontier: #e07dbd;
+  --c-def: #6ea8ef; --c-thm: #a68cf0; --c-ex: #46c4bd; --c-exr: #7cc56f; --c-der: #9aa3ad; --c-note: #8a8a8a; --c-aside: #d6ad55; --c-pit: #ef7b72; --c-key: #f39a52; --c-frontier: #e07dbd;
   color-scheme: dark;
 }
 
@@ -91,11 +95,12 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 400 17px/1.6 var(--font-body);
-  font-optical-sizing: auto;
+  font: 400 16.5px/1.7 var(--font-body);
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
 a:hover { color: var(--accent-ink); }
 .skip { position: absolute; left: -999px; }
 .skip:focus { left: 12px; top: 12px; z-index: 100; background: var(--bg); padding: 6px 10px; }
@@ -114,7 +119,7 @@ body { padding-top: var(--top); }
   border-bottom: 1px solid var(--rule);
   font-family: var(--font-ui);
 }
-.brand { font-weight: 650; font-size: 15px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+.brand { font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
 .crumbs { flex: 1; min-width: 0; font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .crumbs a { color: var(--ink-3); text-decoration: none; }
 .crumbs a:hover { color: var(--ink); }
@@ -122,6 +127,14 @@ body { padding-top: var(--top); }
 .topbar button { background: none; border: 0; color: var(--ink-2); width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: grid; place-items: center; }
 .topbar button:hover { background: var(--bg-2); color: var(--ink); }
 .menu-btn { display: none !important; }
+/* The moon in the light theme, the sun in the dark, as on the other pages. */
+.theme-btn .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-btn .icon-sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-btn .icon-moon { display: none; }
+  :root:not([data-theme="light"]) .theme-btn .icon-sun { display: block; }
+}
 .menu-btn span, .menu-btn span::before, .menu-btn span::after { display: block; width: 16px; height: 1.6px; background: currentColor; position: relative; content: ""; }
 .menu-btn span::before { position: absolute; top: -5px; }
 .menu-btn span::after { position: absolute; top: 5px; }
@@ -162,7 +175,7 @@ body { padding-top: var(--top); }
 .nav-list { list-style: none; margin: 0; padding: 0; }
 .nav-list a { display: flex; gap: 6px; align-items: baseline; padding: 3px 8px; border-radius: 5px; color: var(--ink-2); text-decoration: none; }
 .nav-list a:hover { background: var(--bg-2); color: var(--ink); }
-.nav-list a[aria-current] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.nav-list a[aria-current] { background: var(--bg-2); color: var(--ink); font-weight: 600; }
 .nav-num { flex: none; width: 20px; color: var(--ink-3); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
 .nav-title { flex: 1; min-width: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .nav-status { flex: none; width: 5px; height: 5px; border-radius: 50%; align-self: center; border: 1.2px solid var(--ink-3); }
@@ -171,7 +184,7 @@ body { padding-top: var(--top); }
 .nav-part > summary::-webkit-details-marker { display: none; }
 .nav-part > summary:hover { background: var(--bg-2); }
 .nav-part-link { color: inherit; text-decoration: none; display: flex; gap: 6px; align-items: baseline; flex: 1; }
-.nav-part-link[aria-current] { color: var(--accent-ink); }
+.nav-part-link[aria-current] { color: var(--ink); }
 .nav-part-num { flex: none; width: 20px; text-align: right; font-size: 10.5px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .nav-part-title { flex: 1; }
 .nav-part > summary::after { content: "›"; color: var(--ink-3); font-weight: 400; transition: transform 0.15s; margin-left: 4px; }
@@ -182,7 +195,7 @@ body { padding-top: var(--top); }
 .nav-front a, .nav-back a { padding-left: 34px; font-weight: 600; color: var(--ink); }
 
 /* page outline: weight and color mark the current section, no rules */
-.toc-head { font-weight: 600; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.toc-head { font-weight: 600; font-size: 12.5px; color: var(--ink); margin-bottom: 6px; }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc a { display: block; padding: 2.5px 0; color: var(--ink-3); text-decoration: none; }
 .toc a:hover { color: var(--ink); }
@@ -193,19 +206,20 @@ body { padding-top: var(--top); }
 
 /* ------------------------------------------------------------- article */
 .article h1, .article h2, .article h3, .article h4 { font-family: var(--font-ui); color: var(--ink); line-height: 1.25; letter-spacing: -0.015em; }
-.article h1 { font-size: 1.95rem; font-weight: 700; margin: 0.1em 0 0.6em; letter-spacing: -0.025em; }
-.article h1 .chapter-num { display: block; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5em; }
-.article h2 { font-size: 1.36rem; font-weight: 650; margin: 1.9em 0 0.55em; }
-.article h3 { font-size: 1.1rem; font-weight: 650; margin: 1.5em 0 0.4em; }
-.article h4 { font-size: 0.98rem; font-weight: 650; margin: 1.3em 0 0.35em; }
+.article h1 { font-size: 1.95rem; font-weight: 600; margin: 0.1em 0 0.6em; letter-spacing: -0.025em; }
+.article h1 .chapter-num { display: block; font-size: 0.95rem; font-weight: 500; letter-spacing: 0; color: var(--ink-3); margin-bottom: 0.4em; }
+.article h2 { font-size: 1.36rem; font-weight: 600; margin: 1.9em 0 0.55em; }
+.article h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5em 0 0.4em; }
+.article h4 { font-size: 0.98rem; font-weight: 600; margin: 1.3em 0 0.35em; }
 .sec-num { color: var(--ink-3); font-weight: 600; margin-right: 0.35em; font-variant-numeric: tabular-nums; }
 .anchor { opacity: 0; margin-left: 0.3em; color: var(--ink-3); text-decoration: none; font-weight: 400; }
 h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; }
-.article p { margin: 0 0 0.9em; hyphens: auto; }
+.article { color: var(--prose); }
+.article p { margin: 0 0 0.9em; }
 .article ul, .article ol { padding-left: 1.3em; margin: 0 0 0.9em; }
 .article li { margin: 0.18em 0; }
 .article li > p { margin-bottom: 0.4em; }
-.article strong { font-weight: 650; }
+.article strong { font-weight: 600; color: var(--ink); }
 .article blockquote { margin: 1.1em 0 1.1em 1.6em; padding: 0; color: var(--ink-2); font-style: italic; }
 .article hr { border: 0; border-top: 1px solid var(--rule); margin: 1.8em 0; }
 .lead { font-size: 1.13em; color: var(--ink-2); }
@@ -238,14 +252,13 @@ td .katex { font-size: 1.02em; }
 
 /* status: one quiet line above the title */
 .status-line { font: 400 12.5px/1.4 var(--font-ui); color: var(--ink-3); margin: 0 0 10px !important; }
-.status-pill { display: inline-block; font-weight: 600; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 7px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); margin-right: 4px; }
+.status-pill { display: inline-block; font-weight: 500; font-size: 11.5px; padding: 1px 7px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); margin-right: 4px; }
 .status-draft .status-pill { background: color-mix(in srgb, var(--fig-c4) 26%, var(--bg)); }
 
 /* ------------------------------------------------------------ callouts */
 .callout { --surface: color-mix(in srgb, var(--c, var(--c-note)) 4%, var(--bg)); margin: 1.2em 0; padding: 10px 14px 1px; border: 1px solid color-mix(in srgb, var(--c, var(--c-note)) 22%, var(--rule)); background: var(--surface); border-radius: 7px; }
-.callout-head { font: 600 13px/1.4 var(--font-ui); letter-spacing: 0.02em; margin-bottom: 5px; color: var(--c, var(--ink-2)); }
-.callout-label { text-transform: uppercase; letter-spacing: 0.07em; font-size: 11px; }
-.callout-title { color: var(--ink); font-size: 14.5px; letter-spacing: 0; text-transform: none; }
+.callout-head { font: 600 13px/1.4 var(--font-ui); margin-bottom: 5px; color: var(--c, var(--ink-2)); }
+.callout-title { color: var(--ink); font-size: 14.5px; }
 .callout-title::before { content: "· "; color: var(--ink-3); }
 .callout-body > :last-child { margin-bottom: 9px; }
 .callout-definition { --c: var(--c-def); }
@@ -258,7 +271,7 @@ td .katex { font-size: 1.02em; }
 .callout-proof .callout-body > :last-child::after { content: " ∎"; color: var(--ink-3); }
 .callout-note, .callout-recap { --c: var(--c-note); }
 .callout-aside { --c: var(--c-aside); }
-.callout-aside .callout-label::after { content: " · optional"; text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-3); }
+.callout-aside .callout-label::after { content: " · optional"; font-weight: 400; color: var(--ink-3); }
 .callout-pitfall { --c: var(--c-pit); }
 .callout-keyidea { --c: var(--c-key); }
 .callout-frontier { --c: var(--c-frontier); }
@@ -273,7 +286,7 @@ details.callout[open] > summary::before { content: "▾ "; }
 /* ------------------------------------------------------------- figures */
 .figure { margin: 1.5em -20px; }
 .figure figcaption { font: 400 13.5px/1.45 var(--font-ui); color: var(--ink-2); margin: 7px 20px 0; }
-.fig-num { font-weight: 650; color: var(--ink); margin-right: 0.25em; }
+.fig-num { font-weight: 600; color: var(--ink); margin-right: 0.25em; }
 .fig { container-type: inline-size; background: var(--fig-paper); border: 1px solid var(--rule); border-radius: 7px; padding: 10px 12px 8px; }
 .fig-svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font-ui); }
 .fig-v-narrow { display: none; }
@@ -286,13 +299,13 @@ details.callout[open] > summary::before { content: "▾ "; }
    font-size attribute on a text element wins. */
 .fig-svg { font-size: 12px; }
 .fig-svg text { fill: var(--fig-ink); }
-.fig-t-glyph { font-family: KaTeX_Main, "Source Serif 4", serif; }
+.fig-t-glyph { font-family: KaTeX_Main, "Times New Roman", serif; }
 .fig-t-strong { font-weight: 600; }
 .fig-t-muted { fill: var(--fig-ink-2) !important; }
 .fig-t-faint { fill: var(--fig-ink-3) !important; }
 .fig-t-num { font-variant-numeric: tabular-nums; }
 .fig-t-halo { paint-order: stroke; stroke: var(--fig-paper); stroke-width: 3.5px; stroke-linejoin: round; }
-.fig-t-math { font-family: var(--font-body); font-style: italic; }
+.fig-t-math { font-family: KaTeX_Math, KaTeX_Main, "Times New Roman", serif; font-style: italic; }
 .fig-top { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: flex-end; justify-content: space-between; margin-bottom: 6px; }
 .fig-controls { display: flex; flex-wrap: wrap; gap: 8px 20px; font: 400 13px/1.3 var(--font-ui); color: var(--ink-2); flex: 1 1 320px; }
 .fig-ctl { display: flex; align-items: center; gap: 8px; min-width: 0; }
@@ -372,7 +385,7 @@ details.callout[open] > summary::before { content: "▾ "; }
 a.ref-title { color: var(--accent-ink); text-decoration: none; }
 a.ref-title:hover { text-decoration: underline; }
 .ref-venue { font-style: italic; }
-.ref-badge { display: inline-block; text-indent: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; padding: 1px 7px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); vertical-align: 1px; }
+.ref-badge { display: inline-block; text-indent: 0; font-size: 11px; font-weight: 500; padding: 1px 7px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); vertical-align: 1px; }
 .ref-badge-preprint { background: color-mix(in srgb, var(--fig-c4) 22%, var(--bg)); }
 .ref-badge-software { background: color-mix(in srgb, var(--fig-c3) 18%, var(--bg)); }
 .ref-badge-other { background: color-mix(in srgb, var(--fig-c8) 14%, var(--bg)); }
@@ -383,7 +396,7 @@ a.ref-title:hover { text-decoration: underline; }
 /* part pages: a compact list of chapters */
 .part-chapters { list-style: none; padding: 0 !important; margin: 0 0 1em !important; columns: 2 380px; column-gap: 32px; }
 .part-chapters > li { padding: 7px 0; border-top: 1px solid var(--rule); margin: 0; break-inside: avoid; }
-.page-part h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 600; margin: 1.6em 0 0.5em; }
+.page-part h2 { font-size: 1.1rem; color: var(--ink); font-weight: 600; margin: 1.6em 0 0.5em; }
 .page-part h2 .anchor { display: none; }
 .page-part .ref-list, .ref-list-all { columns: 2 400px; column-gap: 32px; }
 .page-part .ref-list li, .ref-list-all li { break-inside: avoid; }
@@ -391,12 +404,12 @@ a.ref-title:hover { text-decoration: underline; }
 .part-chapters a:hover { color: var(--accent-ink); }
 .part-ch-num { display: inline-block; min-width: 1.6em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .part-chapters p { margin: 2px 0 0 1.75em !important; color: var(--ink-2); font: 400 13.5px/1.45 var(--font-ui); hyphens: none; }
-.badge { font: 600 10px/1 var(--font-ui); padding: 2px 6px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); margin-left: 6px; vertical-align: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+.badge { font: 500 11px/1 var(--font-ui); padding: 2px 6px; border-radius: 9px; background: var(--bg-3); color: var(--ink-2); margin-left: 6px; vertical-align: 2px; }
 .badge-draft { background: color-mix(in srgb, var(--fig-c4) 26%, var(--bg)); }
 
 /* cover: text beside the live figure, then the whole table of contents */
-.page-index h1 { font-size: 2.3rem; margin-bottom: 0.1em; }
-.page-index h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 600; margin: 1.8em 0 0.7em; padding-top: 0.9em; border-top: 1px solid var(--rule); }
+.page-index h1 { font-size: clamp(30px, 5vw, 38px); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.25em; }
+.page-index h2 { font-size: 1.1rem; color: var(--ink); font-weight: 600; margin: 1.8em 0 0.7em; padding-top: 0.9em; border-top: 1px solid var(--rule); }
 .page-index h2 .anchor { display: none; }
 .book-subtitle { font: 400 1.15rem/1.4 var(--font-ui); color: var(--ink-2); margin: 0 0 1.1em !important; }
 .cover-top { display: grid; grid-template-columns: 228px minmax(0, 1fr); gap: 30px; align-items: start; margin-top: 4px; }
@@ -423,8 +436,8 @@ a.ref-title:hover { text-decoration: underline; }
   .book-cover .bc-new-dot, .book-cover .bc-new-arc { animation: none; stroke-dashoffset: 0; }
 }
 .bc-text { position: absolute; top: 7.5%; left: 9%; right: 8%; display: flex; flex-direction: column; color: #f4ecdc; }
-.bc-author { font: 600 3.7cqw/1 var(--font-ui); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8.5cqw; }
-.bc-title { font: 600 12cqw/1.02 var(--font-body); letter-spacing: -0.012em; }
+.bc-author { font: 500 4.4cqw/1 var(--font-ui); opacity: 0.7; margin-bottom: 8.5cqw; }
+.bc-title { font: 600 11cqw/1.05 var(--font-ui); letter-spacing: -0.025em; }
 .bc-sub { font: 400 4.6cqw/1.35 var(--font-ui); opacity: 0.8; margin-top: 5cqw; max-width: 22ch; }
 .cover-live { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 30px; align-items: center; margin: 26px 0 8px; }
 .cover-fig .figure { margin: 0; }
@@ -432,17 +445,17 @@ a.ref-title:hover { text-decoration: underline; }
 .cover-fig figcaption { margin: 4px 0 0; font-size: 12.5px; color: var(--ink-3); }
 .book-toc { columns: 3 250px; column-gap: 26px; font: 400 13.5px/1.32 var(--font-ui); }
 .bt-part { break-inside: avoid; margin: 0 0 14px; }
-.bt-part h3 { font: 650 14px/1.3 var(--font-ui); margin: 0 0 3px; letter-spacing: 0; }
+.bt-part h3 { font: 600 14px/1.3 var(--font-ui); margin: 0 0 3px; letter-spacing: 0; }
 .bt-part h3 a { color: var(--ink); text-decoration: none; }
 .bt-part h3 a:hover { color: var(--accent-ink); }
-.bt-num { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.bt-num { display: block; font-size: 12px; font-weight: 500; color: var(--ink-3); }
 .bt-part ol { list-style: none; margin: 0 !important; padding: 0 !important; }
 .bt-part li { margin: 0; }
 .bt-part li a { display: flex; gap: 7px; padding: 2px 0; color: var(--ink-2); text-decoration: none; }
 .bt-part li a:hover { color: var(--accent-ink); }
 .bt-n { flex: none; width: 1.5em; text-align: right; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin: 0 0 1.4em; }
-.path-name { font: 650 14px/1.3 var(--font-ui); margin: 0 0 2px !important; }
+.path-name { font: 600 14px/1.3 var(--font-ui); margin: 0 0 2px !important; }
 .path-who { font: 400 12.5px/1.4 var(--font-ui); color: var(--ink-3); margin: 0 0 6px !important; hyphens: none !important; }
 .path ul { list-style: none; padding: 0 !important; margin: 0 !important; }
 .path li { margin: 0; font: 400 13.5px/1.32 var(--font-ui); }
@@ -487,9 +500,10 @@ a.ref-title:hover { text-decoration: underline; }
   .menu-btn { display: grid !important; }
   .sidebar {
     position: fixed; top: var(--top); left: 0; bottom: 0; width: min(320px, 86vw); height: auto; z-index: 50;
-    background: var(--bg); transform: translateX(-105%); transition: transform 0.2s ease; box-shadow: 8px 0 30px rgba(0,0,0,0.12);
+    background: var(--bg); transform: translateX(-105%); transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .nav-open .sidebar { transform: none; }
+  /* The shadow only on the open drawer: closed, it would show at the window's edge. */
+  .nav-open .sidebar { transform: none; box-shadow: 8px 0 30px rgba(0,0,0,0.12); }
   .main { padding: 0 16px; }
   .figure { margin: 1.4em 0; }
   .figure figcaption { margin: 7px 2px 0; }
@@ -525,7 +539,7 @@ a.ref-title:hover { text-decoration: underline; }
 }
 
 /* step-through derivations */
-.deriv-bar { display: inline-flex; gap: 6px; align-items: center; margin-left: 10px; vertical-align: 1px; text-transform: none; letter-spacing: 0; }
+.deriv-bar { display: inline-flex; gap: 6px; align-items: center; margin-left: 10px; vertical-align: 1px; }
 .deriv-btn { font: 500 12px/1 var(--font-ui); padding: 4px 9px; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink-2); cursor: pointer; }
 .deriv-btn:hover:not(:disabled) { border-color: var(--c, var(--accent)); color: var(--ink); }
 .deriv-btn:disabled { opacity: 0.4; cursor: default; }
@@ -574,18 +588,14 @@ a.ref-title:hover { text-decoration: underline; }
 .bib-group[hidden], .ref-list-all li[hidden] { display: none; }
 
 /* ---------------------------------------------------------- Chinese edition */
-/* Latin letters and digits keep the book's fonts; Chinese characters fall
-   through to Noto Serif SC (body) and Noto Sans SC (interface). Chinese has
-   no italic, so emphasis is set in weight. */
-:root[lang="zh"] {
-  --font-body: "Source Serif 4", "Noto Serif SC", "Songti SC", "STSong", serif;
-  --font-ui: Inter, "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
-}
+/* Latin letters and digits are set in Inter; Chinese characters fall through
+   to the system's sans, as on the other pages. Chinese has no italic, so
+   emphasis is set in weight. */
 :root[lang="zh"] body { line-height: 1.8; }
 :root[lang="zh"] .article, :root[lang="zh"] .article p { hyphens: none; -webkit-hyphens: none; }
 :root[lang="zh"] .article em, :root[lang="zh"] .article i { font-style: normal; font-weight: 600; }
 :root[lang="zh"] .article h1, :root[lang="zh"] .article h2, :root[lang="zh"] .article h3 { letter-spacing: 0; }
 :root[lang="zh"] .cover-text p, :root[lang="zh"] .cover-live-text p { line-height: 1.75; }
 .status-untranslated { color: var(--ink-3); }
-.lang-btn { font: 600 12.5px/1 var(--font-ui); color: var(--ink-2); text-decoration: none; height: 34px; min-width: 34px; padding: 0 6px; border-radius: 8px; display: grid; place-items: center; }
+.lang-btn { font: 500 12.5px/1 var(--font-ui); color: var(--ink-2); text-decoration: none; height: 34px; min-width: 34px; padding: 0 6px; border-radius: 8px; display: grid; place-items: center; }
 .lang-btn:hover { color: var(--ink); background: var(--bg-2); }

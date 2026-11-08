@@ -21,11 +21,12 @@ if (/(^|\.)changkun\.de$/.test(location.hostname)) {
   document.head.append(stat);
 }
 
-// Theme: follows the system unless the reader picks one.
+// Theme: follows the system unless the reader picks one, here or on another
+// changkun.de page: they share the "theme" key.
 document.querySelector(".theme-btn")?.addEventListener("click", () => {
   const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
   root.dataset.theme = dark ? "light" : "dark";
-  try { localStorage.setItem("bobook-theme", root.dataset.theme); } catch { /* private mode */ }
+  try { localStorage.setItem("theme", root.dataset.theme); } catch { /* private mode */ }
 });
 
 // Sidebar drawer on narrow screens.

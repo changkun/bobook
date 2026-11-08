@@ -93,10 +93,10 @@ ${s.alt ? `<link rel="alternate" hreflang="${book.lang === "en" ? "zh" : "en"}" 
 <link rel="icon" href="@@ROOT@@assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap">
-${book.lang === "zh" ? `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap">\n` : ""}<link rel="stylesheet" href="@@ROOT@@assets/katex/katex.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="@@ROOT@@assets/katex/katex.min.css">
 <link rel="stylesheet" href="@@ROOT@@assets/book.css?v=@@VERSION@@">
-<script>try{var t=localStorage.getItem("bobook-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script type="module" src="@@ROOT@@assets/main.js?v=@@VERSION@@"></script>
 </head>
 <body>
@@ -108,7 +108,7 @@ ${book.lang === "zh" ? `<link rel="stylesheet" href="https://fonts.googleapis.co
   <div class="topbar-tools">
     <button class="search-btn" type="button" aria-label="${esc(ui.search)}"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     ${s.alt ? `<a class="lang-btn" href="@@ROOT@@${esc(s.alt)}" hreflang="${book.lang === "en" ? "zh" : "en"}" title="${esc(ui.otherEdition.title)}">${esc(ui.otherEdition.label)}</a>` : ""}
-    <button class="theme-btn" type="button" aria-label="${esc(ui.theme)}"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 1 0 0 15z" fill="currentColor"/><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <button class="theme-btn" type="button" aria-label="${esc(ui.theme)}"><svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></g></svg></button>
   </div>
 </header>
 <div class="layout">
