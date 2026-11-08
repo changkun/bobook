@@ -31,23 +31,22 @@ const art = `data:image/svg+xml;base64,${Buffer.from(coverArt()).toString("base6
 function card(lang: "en" | "zh"): string {
   const y = parseYaml(readFileSync(`${lang}/book.yml`, "utf8")) as { title: string; subtitle: string; author: string };
   const zh = lang === "zh";
-  const serif = zh ? `"Noto Serif SC", "Source Serif 4", serif` : `"Source Serif 4", serif`;
   const sans = zh ? `Inter, "Noto Sans SC", sans-serif` : `Inter, sans-serif`;
   return `<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600&family=Noto+Sans+SC:wght@400;600&family=Noto+Serif+SC:wght@600&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=block">
 <style>
   html, body { margin: 0; }
   body { width: 1200px; height: 630px; background: linear-gradient(180deg, #15263f, #0b1524); color: #f4ecdc; display: flex; align-items: center; overflow: hidden; }
   .cover { position: relative; width: 340px; height: 510px; margin-left: 84px; flex: none; border-radius: 4px; overflow: hidden; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(244, 236, 220, 0.12); }
   .cover img { position: absolute; inset: 0; width: 100%; height: 100%; }
   .cover .t { position: absolute; top: 7.5%; left: 9%; right: 8%; }
-  .cover .a { font: 600 12.5px/1 ${sans}; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; margin-bottom: 29px; }
-  .cover .h { font: 600 ${zh ? 44 : 41}px/1.05 ${serif}; }
+  .cover .a { font: 500 15px/1 ${sans}; opacity: 0.7; margin-bottom: 29px; }
+  .cover .h { font: 600 ${zh ? 42 : 37}px/1.05 ${sans}; letter-spacing: ${zh ? "0" : "-0.025em"}; }
   .cover .s { font: 400 15.5px/1.35 ${sans}; opacity: 0.8; margin-top: 17px; max-width: 22ch; }
   .text { margin-left: 72px; margin-right: 72px; }
-  .title { font: 600 ${zh ? 78 : 70}px/1.08 ${serif}; letter-spacing: ${zh ? "0.02em" : "-0.01em"}; }
+  .title { font: 600 ${zh ? 74 : 66}px/1.08 ${sans}; letter-spacing: ${zh ? "0.02em" : "-0.025em"}; }
   .sub { font: 400 ${zh ? 34 : 32}px/1.3 ${sans}; opacity: 0.85; margin-top: 22px; text-wrap: balance; }
-  .by { font: 600 22px/1 ${sans}; letter-spacing: ${zh ? "0.3em" : "0.16em"}; text-transform: uppercase; opacity: 0.7; margin-top: 46px; }
+  .by { font: 500 24px/1 ${sans}; letter-spacing: ${zh ? "0.1em" : "0"}; opacity: 0.7; margin-top: 46px; }
   .url { font: 400 22px/1 ${sans}; opacity: 0.55; margin-top: 18px; }
 </style></head><body>
 <div class="cover"><img src="${art}" alt=""><div class="t"><div class="a">${y.author}</div><div class="h">${y.title}</div><div class="s">${y.subtitle}</div></div></div>
